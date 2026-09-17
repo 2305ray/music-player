@@ -1,69 +1,36 @@
-# React + TypeScript + Vite
+[README.md](https://github.com/user-attachments/files/32347941/README.md)
+# music-player
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um player de música feito em React, com uma playlist simples, barra de progresso clicável e controles de play/pause, próxima e anterior. Dando dois cliques rápidos no botão de voltar, ele pula pra faixa anterior; um clique só reinicia a música atual.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- TypeScript
+- Vite
+- styled-components
+- phosphor-react (ícones)
 
-## Expanding the ESLint configuration
+## 📦 Como rodar o projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+# clone o repositório
+git clone https://github.com/2305ray/music-player.git
+cd music-player
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# instale as dependências
+npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# rode em modo desenvolvimento
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Outros scripts disponíveis:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `npm run build` — gera a versão de produção
+- `npm run preview` — visualiza o build de produção localmente
+- `npm run lint` — roda o ESLint
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📁 Estrutura
+
+As músicas e capas usadas no player ficam em `src/assets/resources` e `public/`, e a lista de faixas tocadas é definida em `src/components/musics.tsx`. Toda a lógica de tocar/pausar/avançar/voltar fica no componente `src/components/audioPlayer.tsx`.
